@@ -43,6 +43,7 @@ public class Game implements Runnable{
         //atlas = new TextureAtlas(ATLAS_FILE_NAME);
         player = new Player();
         entitys.add(player);
+        entitys.add(new Interfase(this));
         arrow = new Arrow();
         entitys.add(arrow);
         //level = new Level(atlas);
@@ -198,6 +199,10 @@ public class Game implements Runnable{
 //System.out.println("T="+arg0.getKeyChar());
             }
         };
+    }
+
+    public int getCountBall(){
+        return balls.size();
     }
 }
 
