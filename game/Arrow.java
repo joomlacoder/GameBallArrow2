@@ -9,9 +9,15 @@ class Arrow extends Entity{
     private static final int        START_Y                 =  650;
     private static final int        HEDTH                   = 400;
 
-    private int x = -100;
-    private int y = START_Y;
     private boolean fire = false;
+
+    protected Arrow(){
+        super(-100, START_Y);
+    }
+
+    protected Arrow(int x, int y) {
+        super(x, y);
+    }
 
     public void fire(int x) {
         fire = true;

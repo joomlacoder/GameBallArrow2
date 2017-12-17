@@ -10,6 +10,7 @@ public class Interfase extends Entity{
     Game game;
 
     public Interfase(Game game){
+        super(0, 0);
         this.game = game;
     }
 

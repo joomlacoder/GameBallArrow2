@@ -23,12 +23,13 @@ public class Game implements Runnable{
 
     private boolean running;
     private Thread gameThread;
+    private Render renderTread;
     private java.awt.Graphics2D graphics;
     private TextureAtlas atlas;
     private static Player player;
     private Arrow arrow;
     private int fps = 0;
-    private Render renderTread;
+
     private volatile boolean render;
     //private Level level;
 
@@ -186,14 +187,14 @@ public class Game implements Runnable{
 // System.out.println("P="+arg0.getKeyCode());
                 switch(arg0.getKeyCode()){
                     case 82:{newBall(10, 10, 100, 3, 0); break;}
-                    case 37:{player.left = true; break;}
-                    case 39:{player.right = true; break;}
+                    case 37:{player.setLeft(); break;}
+                    case 39:{player.setRight(); break;}
                     case 32:{arrow.fire(player.getX()); break;}
                 }}
             public void keyReleased(KeyEvent arg0) {
                 switch(arg0.getKeyCode()){
-                    case 37:{player.left=false;break;}
-                    case 39:{player.right=false;break;}
+                    case 37:{player.setNon(); break;}
+                    case 39:{player.setNon(); break;}
                 }}
             public void keyTyped(KeyEvent arg0) {
 //System.out.println("T="+arg0.getKeyChar());

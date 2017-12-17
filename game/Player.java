@@ -4,20 +4,35 @@ import java.awt.*;
 
 class Player extends Entity{
 
-    private final int        Y                   = 650;
-    private final int        WINDTH              = 30;
-    private final int        HIGHT               = 60;
-    private final int        SPEAD               = 12;
-    private final int        START_WINDOW        = 0;
-    private final int        END_WINDOW          = Game.WEIDTH;
+    private static final int        Y                   = 650;
+    private static final int        WINDTH              = 30;
+    private static final int        HIGHT               = 60;
+    private static final int        SPEAD               = 12;
+    private static final int        START_WINDOW        = 0;
+    private static final int        END_WINDOW          = Game.WEIDTH;
 
-    boolean left, right;
-    private int x = 600;
+    Heading heading;
+
+
+    private enum Heading {
+        LEFT,
+        RITE,
+        NON
+    }
+
+    protected Player(){
+        super(600, Y);
+    }
+
+    protected Player(int x, int y) {
+        super(x, y);
+    }
+
 
     public void aplay(){
-        if(left)
+        if(isLeft())
             setX(x - SPEAD);
-        if(right)
+        if(isRight())
             setX(x + SPEAD);
     }
 
@@ -30,19 +45,23 @@ class Player extends Entity{
     }
 
     public boolean isLeft() {
-        return left;
+        return heading == Heading.LEFT;
     }
 
-    public void setLeft(boolean left) {
-        this.left = left;
+    public void setLeft() {
+        heading = Heading.LEFT;
     }
 
     public boolean isRight() {
-        return right;
+        return heading == Heading.RITE;
     }
 
-    public void setRight(boolean right) {
-        this.right = right;
+    public void setRight() {
+        heading = Heading.RITE;
+    }
+
+    public void setNon(){
+        heading = Heading.NON;
     }
 
     public int getX() {

@@ -6,13 +6,13 @@ import java.awt.*;
  */
 public abstract class Entity {
 
-   /* protected float x;
-    protected float y;
+    protected int x;
+    protected int y;
 
-    protected Entity(float x, float y){
+    protected Entity(int x, int y){
         this.x = x;
         this.y = y;
-    }*/
+    }
 
     public abstract void aplay();
     public abstract void render(Graphics2D g);

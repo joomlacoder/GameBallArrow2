@@ -10,8 +10,6 @@ class Ball extends Entity implements Serializable{
     private static final int        END_WINDOW_X            = Game.WEIDTH;
     private static final int        START_WINDOW_X          = 0;
 
-    private int x;
-    private int y;
     private int d;
     private int speed;
     private int direction = 3;
@@ -25,8 +23,7 @@ class Ball extends Entity implements Serializable{
     }
 
     public Ball(int x, int y, int d, int direction, int speed) {
-        this.x = x;
-        this.y = y;
+        super(x,y);
         this.d = d;
         this.direction = direction;
         this.speed = speed;
